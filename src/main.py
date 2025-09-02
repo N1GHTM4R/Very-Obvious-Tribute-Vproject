@@ -4,8 +4,7 @@ import string
 
 
 def process_string(length):
-    letters = string.ascii_letters
-    # todo: make this have special characters too.
+    letters = string.ascii_letters + string.punctuation
     return ''.join(random.choices(letters, k=length))
 
 

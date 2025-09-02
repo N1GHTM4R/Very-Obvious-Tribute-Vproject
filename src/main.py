@@ -9,4 +9,4 @@ def process_string(length):
     return ''.join(random.choices(letters, k=length))
 
 
-print(process_string(30))
+print(process_string(50))

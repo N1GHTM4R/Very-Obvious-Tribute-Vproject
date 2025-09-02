@@ -2,9 +2,9 @@ name: Python Check & Lint
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main, dev, procedural-generation, feature/**, hotfix/** ]
   pull_request:
-    branches: [ dev ]
+    branches: [ main, dev, procedural-generation, feature/**, hotfix/** ]
 
 jobs:
   lint-and-check:

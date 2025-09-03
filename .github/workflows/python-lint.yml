@@ -1,0 +1,31 @@
+name: Python Check & Lint
+
+on:
+  push:
+    branches: [ main, dev, procedural-generation, feature/**, hotfix/** ]
+  pull_request:
+    branches: [ main, dev, procedural-generation, feature/**, hotfix/** ]
+
+jobs:
+  lint-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install flake8
+
+      - name: Check for syntax errors
+        run: python -m py_compile $(find . -name "*.py")
+
+      - name: Run Flake8 linter
+        run: flake8 .

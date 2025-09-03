@@ -18,4 +18,3 @@ while True:
         sys.stdout.flush()
         sleep(uniform(0, 0.1))
     print()
-    
